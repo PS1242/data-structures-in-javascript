@@ -57,6 +57,19 @@ class Linkedlist {
 
     }
 
+    insertAtBeg(val) {
+
+        if (!this.head) return this.insert(val);
+
+        const node = new Node(val);
+
+        node.next = this.head;
+        this.head = node;
+
+        return this;
+        
+    }
+
     removeLast() {
 
         if(!this.head) {
@@ -93,4 +106,14 @@ class Linkedlist {
 
 let list = new Linkedlist();
 
-list.insert(1).insert(2).insert(3).showList().removeLast().showList();
+list
+  .insert(1)
+  .insert(2)
+  .insert(3)
+  .showList()
+  .removeLast()
+  .showList()
+  .insertAtBeg(10)
+  .showList()
+  .insertAtBeg(100)
+  .showList();
