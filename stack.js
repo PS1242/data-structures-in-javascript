@@ -21,7 +21,7 @@ class Stack {
     if (!this.stack[this.stack.length - 1]) {
       console.log("stack is empty!");
     } else {
-      let poppedItem = this.stack.pop();
+      const poppedItem = this.stack.pop();
       return poppedItem;
     }
   }

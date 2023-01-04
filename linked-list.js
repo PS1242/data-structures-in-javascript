@@ -14,7 +14,7 @@ class Linkedlist {
         this.last = null;
         this.length = 0;
     }
-
+    //display list
     showList() {
 
         if(!this.head) {
@@ -36,7 +36,7 @@ class Linkedlist {
 
         return this;
     }
-
+    //insert node at beginning of list
     insert(val) {
 
         const node = new Node(val);
@@ -56,7 +56,7 @@ class Linkedlist {
         return this;
 
     }
-
+    //insert node at starting of list
     insertAtBeg(val) {
 
         if (!this.head) return this.insert(val);
@@ -69,7 +69,7 @@ class Linkedlist {
         return this;
         
     }
-
+    //remove last node of list
     removeLast() {
 
         if(!this.head) {
@@ -98,13 +98,32 @@ class Linkedlist {
         }
 
         return this;
+    }   
+    //remove the head of list
+    removeFirst() {
+        if(!this.head) {
+            console.log('Linked list is empty!');
+        }
+        else {
+            //only one node is present
+            if(this.head === this.last) {
+                this.head = null;
+                this.last = null;
+                this.length--;
+            }
+            else {
+                this.head = this.head.next;
+                this.length--;
+            }
+        }
+        return this;
     }
 }
 
 
 //working
 
-let list = new Linkedlist();
+const list = new Linkedlist();
 
 list
   .insert(1)
@@ -116,4 +135,6 @@ list
   .insertAtBeg(10)
   .showList()
   .insertAtBeg(100)
+  .showList()
+  .removeFirst()
   .showList();
