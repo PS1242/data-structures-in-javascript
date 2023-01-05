@@ -118,6 +118,34 @@ class Linkedlist {
         }
         return this;
     }
+    //reverses the list
+    reverse() {
+        if(!this.head) {
+            console.log('Linked list is empty!');
+        }
+        else {
+            //only one node in list, do nothing
+            if(this.head === this.last) {
+                return this;
+            }
+            else {
+                let prev,next,curr;
+                prev = null;
+                next = null;
+                curr = this.head;
+                
+                while(curr !== null) {
+                    next = curr.next;
+                    curr.next = prev;
+                    prev = curr;
+                    curr = next;
+                }
+                this.last = this.head;
+                this.head = prev;
+            }
+        }
+        return this;
+    }
 }
 
 
@@ -126,15 +154,17 @@ class Linkedlist {
 const list = new Linkedlist();
 
 list
-  .insert(1)
-  .insert(2)
-  .insert(3)
-  .showList()
-  .removeLast()
-  .showList()
-  .insertAtBeg(10)
-  .showList()
-  .insertAtBeg(100)
-  .showList()
-  .removeFirst()
-  .showList();
+.insert(1)
+.insert(2)
+.insert(3)
+.showList()
+.removeLast()
+.showList()
+.insertAtBeg(10)
+.showList()
+.insertAtBeg(100)
+.showList()
+.removeFirst()
+.showList()
+.reverse()
+.showList();
