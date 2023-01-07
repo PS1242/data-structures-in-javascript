@@ -36,7 +36,7 @@ class Linkedlist {
 
         return this;
     }
-    //insert node at beginning of list
+    //insert node at end of list
     insert(val) {
 
         const node = new Node(val);
@@ -66,14 +66,48 @@ class Linkedlist {
         node.next = this.head;
         this.head = node;
 
+        this.length++;
+
         return this;
         
     }
+    //insert node at a specific position
+    insertAtPos(val, pos) {
+        if(!this.head) {
+            return this.insert(val);
+        }
+        if(pos === 0) {
+            return this.insertAtBeg(val);
+        }
+        if(pos > this.length) {
+            console.log('Position is greater than list size, please enter valid value');
+            return this;
+        }
+        else {
+            const node = new Node(val);
+            let temp = this.head;
+            let i = 0;
+            while( i < pos - 1) {
+                temp = temp.next;
+                i++;
+            }
+            node.next = temp.next;
+            temp.next = node
+            if(node.next === null) {
+                this.last = node;
+            } 
+            this.length++;
+        }
+        return this;
+    }
+
+
     //remove last node of list
     removeLast() {
 
         if(!this.head) {
             console.log('Linked list is empty!');
+            return this;
         }
         else {
             //only one node is present
@@ -103,6 +137,7 @@ class Linkedlist {
     removeFirst() {
         if(!this.head) {
             console.log('Linked list is empty!');
+            return this;
         }
         else {
             //only one node is present
@@ -167,4 +202,6 @@ list
 .removeFirst()
 .showList()
 .reverse()
+.showList()
+.insertAtPos(999, 2)
 .showList();
