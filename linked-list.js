@@ -81,7 +81,6 @@ class Linkedlist {
         }
         if(pos > this.length) {
             console.log('Position is greater than list size, please enter valid value');
-            return this;
         }
         else {
             const node = new Node(val);
@@ -107,7 +106,6 @@ class Linkedlist {
 
         if(!this.head) {
             console.log('Linked list is empty!');
-            return this;
         }
         else {
             //only one node is present
@@ -137,7 +135,6 @@ class Linkedlist {
     removeFirst() {
         if(!this.head) {
             console.log('Linked list is empty!');
-            return this;
         }
         else {
             //only one node is present
